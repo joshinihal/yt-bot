@@ -5,7 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 import os
 import time
 
-channel_url = 'https://www.youtube.com/channel/UC_0IIMmTZvnfO9ucN87qUhQ/videos'
+channel_url = ''
 
 while True:
     options = webdriver.ChromeOptions()
