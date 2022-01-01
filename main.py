@@ -14,8 +14,8 @@ while True:
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--no-sandbox")
     options.add_argument("--headless")
-
-    browser = webdriver.Chrome(executable_path='C:/Program Files (x86)/Chrome Driver/chromedriver.exe')
+    browser = webdriver.Chrome(executable_path=os.environ.get('CHROMEDRIVER_PATH'),options=options)
+    # browser = webdriver.Chrome(executable_path='C:/Program Files (x86)/Chrome Driver/chromedriver.exe')
     browser.get(channel_url)
 
     # get list of youtube videos titles
@@ -33,6 +33,7 @@ while True:
             (By.CLASS_NAME, "ytp-play-button")))
             # click only if button is of label 'play' not 'pause'.
             if elem.get_attribute('aria-label') == 'Play (k)':
+                print('Currently watching:', link)
                 elem.click()
             time.sleep(30)
 
