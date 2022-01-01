@@ -35,7 +35,10 @@ while True:
             if elem.get_attribute('aria-label') == 'Play (k)':
                 print('Currently watching:', link)
                 elem.click()
-            time.sleep(30)
+            time.sleep(35)
+            browser.close()
+            browser.switch_to.window(browser.window_handles[-1])
+            # browser.window_handles.pop()
 
     time.sleep(3000)
     browser.quit()
